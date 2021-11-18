@@ -1,6 +1,12 @@
 <?php
 header('Content-type: application/json');
-if(isset($_GET['username']) && isset($_GET['secret']) && $_GET['username']==='akashhdr' && $_GET['secret']==='Ganga ki 108 Dhaar'){
+$config = file_get_contents('../config.json'); 
+
+$obj = json_decode($config, true); 
+$_GLOBALS["USERNAME"]=$obj["USERNAME"];
+$_GLOBALS['PASSWORD']=$obj['PASSWORD'];
+
+if(isset($_GET['username']) && isset($_GET['secret']) && $_GET['username']===$_GLOBALS['USERNAME'] && $_GET['secret']===$_GLOBALS['PASSWORD']){
 
 }
 else{
